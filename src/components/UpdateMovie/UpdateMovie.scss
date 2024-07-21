@@ -1,0 +1,15 @@
+@import'../../common/component.scss';
+
+.bth {
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+
+    &-submit {
+        background-color: green;
+    }
+
+    &-cancel {
+        background-color: red;
+    }
+}

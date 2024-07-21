@@ -1,0 +1,15 @@
+@import '../../common/component.scss';
+
+.btn {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+
+    &-submit {
+        background-color: green;
+    }
+
+    &-cancel {
+        background-color: red;
+    }
+}
