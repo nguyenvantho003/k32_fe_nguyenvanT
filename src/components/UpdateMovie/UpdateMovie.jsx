@@ -2,7 +2,7 @@ import { Spin } from 'antd'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './UpdateMovie.scss'
-import { updateMovie } from '../../redux/movie/movieSlice'
+import { getMovies, updateMovie } from '../../redux/movie/movieSlice'
 import { ACCESS_TOKEN } from '../../constants'
 
 function UpdateMovie({ setIdSelectedMovie,  selectedMovie, setIsUpdateMovie }) {
@@ -23,6 +23,7 @@ function UpdateMovie({ setIdSelectedMovie,  selectedMovie, setIsUpdateMovie }) {
       id: selectedMovie._id,
       updateData: formData
     }))
+    console.log(selectedMovie)
     await dispatch(getMovies(accessToken))
     setLoading(false)
     setIdSelectedMovie('')

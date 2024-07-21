@@ -28,6 +28,7 @@ function CreateMovie({ setIsCreateNewMovie }) {
       poster:'',
     })
     setLoading(false)
+    setIsCreateNewMovie(false)
   }
   return (
     <section>

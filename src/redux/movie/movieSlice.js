@@ -47,9 +47,9 @@ export const createNewMovie = createAsyncThunk('movies/createNewMovie', async ({
     }
 })
 
-export const updateMovie = createAsyncThunk('movies/updateMovie', async ({ accessToken, id, updateMovie }) => {
+export const updateMovie = createAsyncThunk('movies/updateMovie', async ({ accessToken, id, updateData }) => {
     try {
-        await createAPI(accessToken).put(`/movie/${id}`, { ...updateData })
+        await createAPI(accessToken).put(`/movies/${id}`, { ...updateData })
         notification[NOTIFICATION_TYPE.success]({
             message: 'Update movie successfully'
         })

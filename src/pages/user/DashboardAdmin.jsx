@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteMovie, getMoviesFromStore } from '../../redux/movie/movieSlice'
+import { deleteMovie, getMovies, getMoviesFromStore } from '../../redux/movie/movieSlice'
 import CreateMovie from '../../components/CreateMovie/CreateMovie'
 import UpdateMovie from '../../components/UpdateMovie/UpdateMovie'
 import './DashboardAdmin.scss'
 import { ACCESS_TOKEN } from '../../constants'
+import { Spin } from 'antd'
 
 function DashboardAdmin() {
   const dispatch = useDispatch()
@@ -17,10 +18,12 @@ function DashboardAdmin() {
   const [idSelectedMovie, setIdSelectedMovie] = useState('')
 
   const selectedMovie = useMemo(() => {
-    return movies.find(item => item._id === setIdSelectedMovie) || {}
-  }, [movies, setIdSelectedMovie])
+    return movies.find(item => item._id === idSelectedMovie) || {}
+  }, [movies, idSelectedMovie])
 
-  const handleDeleteMovie = async (id) => {
+  // 
+
+  const handleDeleteMovie = async (movieId) => {
     if (confirm('Confirm delete movie?')) {
       const accessToken = localStorage.getItem(ACCESS_TOKEN)
       setLoading(true)
